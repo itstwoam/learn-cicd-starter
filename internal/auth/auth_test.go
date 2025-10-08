@@ -15,7 +15,7 @@ func TestGetAPIKey(t *testing.T) {
 		"Valid Bearer token": {
 			header: http.Header{"Authorization": {"ApiKey abc123"}}, 
 			want: "abc123", 
-			expErr: true,
+			expErr: false,
 		},
 		"Missing Authorization": {
 			header: http.Header{},
