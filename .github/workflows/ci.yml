@@ -25,10 +25,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Check out code for styling
         uses: actions/checkout@v4
 
-      - name: Set up Go
+      - name: Set up Go for styling
         uses: actions/setup-go@v5
         with:
           go-version: "1.25.1"
