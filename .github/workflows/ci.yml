@@ -34,6 +34,5 @@ jobs:
         with:
           go-version: "1.25.1"
 
-    steps:
       - name: Check styling
         run:  test -z "$(go fmt ./...)"
