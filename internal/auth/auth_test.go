@@ -2,49 +2,49 @@ package auth
 
 import (
 	//"reflect"
-	"testing"
 	"net/http"
+	"testing"
 )
 
 func TestGetAPIKey(t *testing.T) {
 	tests := map[string]struct {
 		header http.Header
-		want string
+		want   string
 		expErr bool
 	}{
 		"Valid Bearer token": {
-			header: http.Header{"Authorization": {"ApiKey abc123"}}, 
-			want: "abc123", 
+			header: http.Header{"Authorization": {"ApiKey abc123"}},
+			want:   "abc123",
 			expErr: false,
 		},
 		"Missing Authorization": {
 			header: http.Header{},
-			want: "",
+			want:   "",
 			expErr: true,
 		},
 		"Empty Authorization": {
 			header: http.Header{"Authorization": {""}},
-			want: "",
+			want:   "",
 			expErr: true,
 		},
 		"Malformed header with no space": {
 			header: http.Header{"Authorization": {"ApiKey123"}},
-			want: "",
+			want:   "",
 			expErr: true,
 		},
 		"Multiple spaces": {
 			header: http.Header{"Authorization": {"ApiKey abc123 extra"}},
-			want: "abc123",
+			want:   "abc123",
 			expErr: false,
 		},
 		"Multiple authorization values": {
 			header: http.Header{"Authorization": {"ApiKey abc123 Bearer def456"}},
-			want: "abc123",
+			want:   "abc123",
 			expErr: false,
 		},
 		"Multiple authorization values with wrong order": {
 			header: http.Header{"Authorization": {"Bearer def456 ApiKey abc123"}},
-			want: "",
+			want:   "",
 			expErr: true,
 		},
 	}
