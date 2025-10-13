@@ -22,6 +22,10 @@ jobs:
       - name: Build the image
         run: ./scripts/buildprod.sh
 
+      - name: Print context
+        run: |
+          echo "CD run $(date) on commit $GITHUB_SHA"
+
       - name: Auth to GCP
         uses: google-github-actions/auth@v2
         with:
