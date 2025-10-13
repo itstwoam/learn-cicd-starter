@@ -1,0 +1,5 @@
+# yaml
+steps:
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: bash
+    args: ["-c", "echo hello && gcloud --version"]
