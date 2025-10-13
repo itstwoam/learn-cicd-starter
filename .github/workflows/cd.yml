@@ -34,9 +34,9 @@ jobs:
 #          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
 #          export_default_credentials: true
 
-      - name: Enable APIs
-        run: |
-          gcloud services enable cloudbuild.googleapis.com artifactregistry.googleapis.com
+      # - name: Enable APIs
+      #   run: |
+      #     gcloud services enable cloudbuild.googleapis.com artifactregistry.googleapis.com
 
       - name: Build and push image
         run: |
